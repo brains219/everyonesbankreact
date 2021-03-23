@@ -4,15 +4,18 @@ import { Button } from "reactstrap";
 import Header from "./components/HeaderComponent";
 import Home from "./components/HomePageComponent";
 import Footer from "./components/FooterComponent";
+import Rates from "./components/RatePageComp";
 import './App.css';
 import React from 'react';
 
 function App() {
   return (
     <React.Fragment>
-      <Header />
-      <Home />
-      <Footer />
+      <Router>
+        <Header />
+        <Rates />
+        <Footer />
+      </Router>
     </React.Fragment>
   );
 }
