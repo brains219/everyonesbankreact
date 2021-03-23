@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import {
   Collapse,
@@ -14,36 +14,70 @@ import {
   DropdownItem,
   Jumbotron,
   NavbarText,
+  Button,
 } from "reactstrap";
 
-const Header = (props) => {
+const NavBar = (props) => {
   return (
-    <React.Fragment>
-      <Jumbotron fluid>
-        <div className="container">
-          <div className="row">
-            <div className="col">
-              <h1>Everyone's Bank</h1>
-              <h2>A Bank for everyone</h2>
-            </div>
-          </div>
-        </div>
-      </Jumbotron>
-      <Navbar>
-        <NavbarBrand to="/">Everyone's Bank</NavbarBrand>
-        <Nav className="me-auto" navbar>
-          <NavItem>
-            <NavLink to="/">Home</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="/personalaccounts">
-              Personal Accounts
-            </NavLink>
-          </NavItem>
-        </Nav>
+    <div>
+      <Navbar className="bg-info" expand="md">
+        <NavbarBrand href="/">Everyone's Bank</NavbarBrand>
+        <NavbarToggler onClick={props.toggle} />
+        <Collapse isOpen={props.isOpen} navbar>
+          <Nav className="mr-auto" navbar>
+            <NavItem>
+              <NavLink to="/home">Home</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink to="/personalaccounts">Personal Accounts</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink to="/rates">Rates</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink to="/aboutus">About Us</NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
       </Navbar>
-    </React.Fragment>
+    </div>
   );
 };
+
+class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false,
+    };
+    this.handleToggle = this.handleToggle.bind(this);
+  }
+
+  handleToggle() {
+    this.setState({ isOpen: !this.state.isOpen });
+  }
+  //font awesome icon not showing on login?! debug later
+  render() {
+    return (
+      <React.Fragment>
+        <Jumbotron fluid>
+          <div className="row">
+            <div className="col-md-10">
+              <h1 className="logoWords">Everyone's Bank</h1>
+              <h4 className="logoWords">A Bank for everyone</h4>
+            </div>
+            <div className="col">
+              <Button type="submit">
+                {" "}
+                <i className="fas fa-sign-in-alt" /> Login
+              </Button>
+            </div>
+          </div>
+        </Jumbotron>
+        <NavBar isOpen={this.state.isOpen} toggle={this.handleToggle} />
+      </React.Fragment>
+    );
+  }
+}
 
 export default Header;

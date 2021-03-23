@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+.jumbotron {
+  margin-bottom: 0;
+  background: linear-gradient(to right, #6f96c9, #086FF3);
+}
+
+.logoWords {
+  margin-left: 20px;
+  color: white;
+}
+
+.myCarouselImg {
+  height: 600px;
+}
+
+a {
+    color: white; }
+
+.site-footer {
+  background: linear-gradient(to right, #6f96c9, #086FF3);
+  color: white; }
+  .site-footer a {
+    color: white; }
