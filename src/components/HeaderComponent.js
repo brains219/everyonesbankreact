@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, NavLink } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -7,7 +7,6 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
@@ -26,16 +25,24 @@ const NavBar = (props) => {
         <Collapse isOpen={props.isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink to="/home">Home</NavLink>
+              <NavLink className="nav-link" to="/">
+                Home
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to="/personalaccounts">Personal Accounts</NavLink>
+              <NavLink className="nav-link" to="/personalaccounts">
+                Personal Accounts
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to="/rates">Rates</NavLink>
+              <NavLink className="nav-link" to="/rates">
+                Rates
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to="/aboutus">About Us</NavLink>
+              <NavLink className="nav-link" to="/aboutus">
+                About Us
+              </NavLink>
             </NavItem>
           </Nav>
         </Collapse>
